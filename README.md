@@ -1,6 +1,6 @@
 # Happy Birthday Website 
 
-A simple and special **Happy Birthday Website** made with ❤️ for my friend.  
+A simple and special **Happy Birthday Website** made with ❤️ for my crush.  
 
 ---
 
