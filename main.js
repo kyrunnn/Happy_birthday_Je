@@ -154,3 +154,45 @@ const $=s=>document.querySelector(s);
     }, { once: true });
 
 })();
+
+// ===============================
+// PHOTO LIGHTBOX
+// ===============================
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const lightboxCaption = document.getElementById("lightboxCaption");
+const lightboxClose = document.getElementById("lightboxClose");
+
+const photos = document.querySelectorAll(".polaroid img");
+
+photos.forEach((photo) => {
+  photo.addEventListener("click", () => {
+    const figure = photo.closest(".polaroid");
+    const caption = figure.querySelector("figcaption");
+
+    lightboxImg.src = photo.src;
+    lightboxCaption.textContent = caption.textContent;
+
+    lightbox.classList.add("active");
+  });
+});
+
+// Tutup lightbox dengan tombol X
+lightboxClose.addEventListener("click", () => {
+  lightbox.classList.remove("active");
+});
+
+// Tutup ketika klik area luar foto
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove("active");
+  }
+});
+
+// Tutup dengan tombol ESC
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    lightbox.classList.remove("active");
+  }
+});
